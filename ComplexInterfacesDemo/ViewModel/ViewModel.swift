@@ -11,7 +11,6 @@ import Combine
 
 final class ViewModel: ObservableObject {
     @Published var landmarks : [LandmarkModel] = load("landmarkData.json")
-    var hikes: [HikeModel] = load("hikeData.json")
     
     var features: [LandmarkModel] {
             landmarks.filter { $0.isFeatured }
