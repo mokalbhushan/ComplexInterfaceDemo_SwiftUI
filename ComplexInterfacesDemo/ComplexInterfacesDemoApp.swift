@@ -11,7 +11,8 @@ import SwiftUI
 struct ComplexInterfacesDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CategoryHome()
+                .environmentObject(ViewModel())
         }
     }
 }
