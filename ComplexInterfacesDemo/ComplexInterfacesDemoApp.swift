@@ -11,8 +11,34 @@ import SwiftUI
 struct ComplexInterfacesDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            CategoryHome()
+            ContentView()
                 .environmentObject(ViewModel())
+        }
+    }
+}
+
+struct ContentView:View{
+    @State private var tabSelection:Tab = .Feature
+    
+    enum Tab{
+        case Feature
+        case List
+    }
+    
+    var body: some View{
+        TabView(selection: $tabSelection){
+            CategoryHome()
+                .tabItem{
+                    Label("Featured",systemImage: "star")
+                       
+                }
+                .tag(Tab.Feature)
+            
+            LandmarkList()
+                .tabItem{
+                    Label("List",systemImage: "list.bullet")
+                }
+                .tag(Tab.List)
         }
     }
 }
